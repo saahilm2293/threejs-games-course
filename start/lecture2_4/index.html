@@ -24,8 +24,19 @@
 </head>
 
 <body>
-  <script>  
-    
+  <script>
+    function compare (a,b){
+      if (isNAN(a)){
+        console. log('a is not a number');
+      }
+      else if (a<b) {
+      console.log('a is less than b');
+      }else if (a==b){
+      console.log ('a is equal to b');
+      } else{
+      console.log ('a is greater than b');
+      }
+    }
   </script>
 </body>
 
