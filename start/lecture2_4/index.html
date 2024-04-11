@@ -26,8 +26,10 @@
 <body>
   <script>
     function compare (a,b){
-      if (isNAN(a)){
-        console. log('a is not a number');
+      if (isNaN(a)){
+        console.log('a is not a number');
+      }else if (isNaN(b)){
+        console.log ('b is not a number');
       }
       else if (a<b) {
       console.log('a is less than b');
@@ -37,6 +39,34 @@
       console.log ('a is greater than b');
       }
     }
+      function today(){
+        const day = new Date().getDate();
+
+        switch(day){
+          case 0:
+            console.log ('Today is Sunday');
+            break;
+          case 1:
+            console.log ('Today is Monday');
+            break;
+          case 2:
+            console.log ('Today is Tuesday');
+            break;
+          case 3:
+            console.log ('Today is Wednesday');
+            break;
+          case 4:
+            console.log ('Thrusday');
+            break;
+          case 5:
+            console.log ('Friday');
+            break;
+          case 6:
+            console.log ("Saturday");
+            break;
+          
+        }
+      }
   </script>
 </body>
 
