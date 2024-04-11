@@ -40,8 +40,10 @@
       }
     }
       function today(){
-        const day = new Date().getDate();
+        const day = new Date().getDay();
 
+        console.log("Day of the week:", day);
+      
         switch(day){
           case 0:
             console.log ('Today is Sunday');
@@ -56,7 +58,7 @@
             console.log ('Today is Wednesday');
             break;
           case 4:
-            console.log ('Thrusday');
+            console.log ('Today is Thrusday');
             break;
           case 5:
             console.log ('Friday');
@@ -68,7 +70,14 @@
             console.log('Error: Invalid day');
         }
       }
-      today();
+
+      function weekend(){
+        const day = new Date().getDay();
+        console.log("Day of the week:", day);
+
+        return (day==0 || day==6 ) ? "its the weekend" : "its not the weekend"
+      }
+
   </script>
 </body>
 
