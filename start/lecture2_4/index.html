@@ -78,6 +78,22 @@
         return (day==0 || day==6 ) ? "its the weekend" : "its not the weekend"
       }
 
+      function todayandtwo(){
+        const today = new Date();
+        const twoDaysLater = new Date(today);
+        twoDaysLater.setDate(today.getDate() + 2);
+
+        const daysOfWeek = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday']
+
+        const todayDayOfWeek = daysOfWeek[today.getDay()];
+        const twoDaysLaterDayOfWeek = daysOfWeek[twoDaysLater.getDay()];
+
+        console .log("Today is" + todayDayOfWeek);
+        console.log("Tow days later will be" + twoDaysLaterDayOfWeek);
+
+      }
+
+
   </script>
 </body>
 
