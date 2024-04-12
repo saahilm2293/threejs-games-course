@@ -26,6 +26,46 @@
 <body>
    <script>
      //Place your code here
+     const planets = ["Mercury", "Venus", "Earth", "Mars" , "Jupiter", "Saturn" , "Uranus"];
+     planets.push("Neptune");
+
+     console.log ('There are ' + planets.length + ' planets in our Solar System');
+     console.log ('Our planet is '+ planets [2]);
+
+     planets.push ("pluto");
+     console.log('Until 2006 there were ' + planets.length + ' planets in our Solar System');
+
+     const pluto = planets.pop();
+     console.log('In 2006' + pluto + ' was declassified as a planet. Now there are ' + planets.length + ' Planets');
+
+     function today(){
+      
+      const day = new Date().getDay();
+
+      const daysofweek = ["Sunday","Monday", "Tuesday","Wednesday","Thrusday","Friday","Saturday",];
+
+      return daysofweek[day];
+
+     }
+
+     function month(){
+      const monthID = new Date().getMonth();
+
+      const monthname = ["January", "Feb", "Mar", "Apr","May","June", "Jul","Aug","Sep","Oct","Nov", "Dec"];
+
+      return  monthname [monthID];
+
+     }
+
+     function year(){
+      const yearId = new Date().getFullYear();
+
+      return yearId;
+
+     }
+
+     console.log ( today() +' ' + month()+ ' ' + year());
+
    </script> 
 </body>
 
