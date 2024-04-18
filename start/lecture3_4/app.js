@@ -16,6 +16,15 @@ class App{
 		this.renderer.setPixelRatio( window.devicePixelRatio );
 		this.renderer.setSize( window.innerWidth, window.innerHeight );
 		container.appendChild( this.renderer.domElement );
+
+		// Creating a box geometry
+		const geometry = new THREE.BoxBufferGeometry();
+		// Creating a standard material with color
+		const material = new THREE.MeshStandardMaterial ( { color: 0xFF0000 });
+
+		// Creating a mesh with the geometry and material
+		this.mesh = new THREE.Mesh( geometry, material );
+		this.scene.add(this.mesh); // Adding the mesh to the scene
 		       
         this.renderer.setAnimationLoop(this.render.bind(this));
     
