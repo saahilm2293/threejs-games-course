@@ -16,7 +16,7 @@ class App{
 		this.scene.background = new THREE.Color (0xaaaaaa); // Background Colour
 
 		//To add an ambient Light
-		const ambient = new THREE.HemisphereLight ( 0xFFFFFF, 0xBBBBFF,0.3 );
+		const ambient = new THREE.AmbientLight ( 0xFFFFFF, 0xBBBBFF,0.3 );
 		this.scene.add(ambient);
 
 		//Directional Light
