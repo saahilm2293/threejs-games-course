@@ -19,7 +19,30 @@
 
 <body>
     <script>
-     
+     console .clear();
+
+     fetch ('./lecture2_12/characters.json')
+       .then( response => response.json())
+       .then ( obj => {
+        obj.forEach(character => {
+          console.log (character);
+        });
+       })
+
+       fetch('./lecture2_12/planetinfo.json')
+        .then( response => response.json())
+        .then ( obj => { 
+          displayFacts (obj.planets);
+        }).catch(err => console.error(err));
+
+        function displayFacts (planets){
+          const largest = planets.reduce( ( acc, loc) => acc.radius > loc.radius ? acc : loc );
+          console.log ( `The largest planet in the solar system is ${largest.name}`)
+          const smallest = planets.reduce( (acc , loc) => acc.radius < loc.radius ? acc:loc);
+          console.log (`The smallest planet in te solar system is ${smallest.name}`);
+          const highestMoons = planets.reduce( (acc , loc) => acc.moons > loc.moons ? acc:loc);
+          console.log (`The highest number of moons  ${smallest.moons.length }`);
+        }
     </script>
 </body>
 
