@@ -25,8 +25,9 @@ class App{
 		container.appendChild( this.renderer.domElement );
 		
         //Replace Box with Circle, Cone, Cylinder, Dodecahedron, Icosahedron, Octahedron, Plane, Sphere, Tetrahedron, Torus or TorusKnot
-        const geometry = new THREE.BoxGeometry();
+        //const geometry = new THREE.DodecahedronGeometry(1,0);
         //const geometry = this.createStarGeometry();
+        const geometry = this.createHexagonGeometry();
 
         const material = new THREE.MeshStandardMaterial( { color: 0xFF0000 });
 
@@ -41,8 +42,53 @@ class App{
         window.addEventListener('resize', this.resize.bind(this) );
 	}	
     
-    createStarGeometry(innerRadius=0.4, outerRadius=0.8, points=5){
+    //createStarGeometry(innerRadius=0.4, outerRadius=0.8, points=5){
         
+        //const shape = new THREE.Shape();
+
+        //const PI2 = Math.PI *2;
+        //const inc = PI2/(points*2);
+
+        //shape.moveTo( outerRadius,0);
+        //let inner = true;
+
+        //for(let theta=inc; theta<PI2; theta+=inc){
+            //const radius = (inner) ? innerRadius : outerRadius;
+            //shape.lineTo( Math.cos(theta)*radius, Math.sin(theta)*radius);
+            //inner = !inner;
+        //}
+
+        //const extrudeSettings= {
+            //steps:1,
+           // depth:1,
+            //bevelEnabled:false
+        //}
+
+        createHexagonGeometry(sideLength =1){
+        
+            const shape = new THREE.Shape();
+    
+            const PI2 = Math.PI * 2;
+            const inc = PI2/ 6;
+    
+            shape.moveTo( sideLength * Math.cos(0) ,sideLength*Math.sin(0));
+            
+    
+            for(let theta=inc; theta<PI2; theta+=inc) {
+                shape.lineTo( sideLength * Math.cos(theta), sideLength*Math.sin(theta));
+                
+            }
+            shape.lineTo( sideLength * Math.cos(0), sideLength*Math.sin(0));
+    
+            const extrudeSettings= {
+                steps:1,
+                depth:0.5,
+                bevelEnabled:false
+            }
+
+        return new THREE.ExtrudeGeometry(shape, extrudeSettings);
+
+       
     }
 
     resize(){
@@ -52,7 +98,7 @@ class App{
     }
     
 	render( ) {   
-        this.mesh.rotateY( 0.01 );
+        //this.mesh.rotateY( 0.01 );
         this.renderer.render( this.scene, this.camera );
     }
 }
