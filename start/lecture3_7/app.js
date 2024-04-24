@@ -12,7 +12,7 @@ class App{
 		this.scene = new THREE.Scene();
         this.scene.background = new THREE.Color( 0xaaaaaa );
 
-		const ambient = new THREE.HemisphereLight(0xffffff, 0xbbbbff, 0.3);
+		const ambient = new THREE.HemisphereLight(0x1c1c1c, 1);
 		this.scene.add(ambient);
         
         const light = new THREE.DirectionalLight();
@@ -25,10 +25,11 @@ class App{
         this.renderer.outputEncoding = THREE.sRGBEncoding;
 		container.appendChild( this.renderer.domElement );
 		
-        const geometry = new THREE.TorusKnotGeometry(); 
+        const geometry = new THREE.TorusKnotGeometry(10,3,100,20,2,3); 
         
         //Change this line to code-along with the video
-        const material = new THREE.MeshBasicMaterial( { color: 0x00FF00 });
+        const material = new THREE.MeshStandardMaterial( { color: 0x049ef4, 
+            roughness: 0.1, metalness:0.5, opacity: 1 });
 
         this.mesh = new THREE.Mesh( geometry, material );
         
@@ -48,8 +49,8 @@ class App{
     }
     
 	render( ) {   
-        this.mesh.rotateY( 0.01 );
-        this.mesh.rotateX( 0.005 );
+        //this.mesh.rotateY( 0.01 );
+        //this.mesh.rotateX( 0.005 );
         this.renderer.render( this.scene, this.camera );
     }
 }
